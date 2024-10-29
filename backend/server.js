@@ -1,9 +1,10 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import authRouter from './routes/auth.routes.js';
 import connectMongo from './DB/connectMongo.js';
-import messageRoute from './routes/message.route.js'
 import cookieParser from 'cookie-parser';
+import authRouter from './routes/auth.routes.js';
+import messageRoute from './routes/message.route.js'
+import userRouter from './routes/user.routes.js'
 
 const app = express();
 dotenv.config();
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRouter);
 app.use('/api/messages', messageRoute);
+app.use('/api/users', userRouter);
 
 app.listen(process.env.PORT, () => {
     console.log(`Example app listening on port`);
