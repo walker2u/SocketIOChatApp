@@ -20,6 +20,10 @@ app.use('/api/auth', authRouter);
 app.use('/api/messages', messageRoute);
 app.use('/api/users', userRouter);
 
+app.get('/api', (req, res) => {
+    res.send("Mayank");
+});
+
 app.listen(process.env.PORT, () => {
     console.log(`Example app listening on port`);
     connectMongo();
