@@ -5,8 +5,8 @@ import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.routes.js';
 import messageRoute from './routes/message.route.js'
 import userRouter from './routes/user.routes.js'
+import { app, server } from './socket/socket.js';
 
-const app = express();
 dotenv.config();
 
 app.use(express.json());
@@ -24,7 +24,7 @@ app.get('/api', (req, res) => {
     res.send("Mayank");
 });
 
-app.listen(process.env.PORT, () => {
+server.listen(process.env.PORT, () => {
     console.log(`Example app listening on port`);
     connectMongo();
 })
