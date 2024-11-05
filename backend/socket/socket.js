@@ -14,6 +14,10 @@ const io = new Server(server, {
 
 const userSocketMap = {}; // { userId: socketId }
 
+export const getRecieverSocketId = (receiverId) => {
+    return userSocketMap[receiverId];
+}
+
 io.on('connection', (socket) => {
     console.log('Connected to socket...', socket.id);
     const userId = socket.handshake.query.userId;

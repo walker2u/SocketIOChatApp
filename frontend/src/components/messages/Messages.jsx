@@ -2,10 +2,13 @@ import React, { useEffect, useRef } from 'react'
 import SingleMessage from './SingleMessage.jsx'
 import { useGetMessages } from '../../hooks/useGetMessages.js'
 import MessageSkeleton from '../skeleton/MessageSkeleton.jsx'
+import useListenMessages from '../../hooks/useListenMessages.js';
 
 function Messages() {
     const { loading, messages } = useGetMessages();
     const lastMessageRef = useRef();
+
+    useListenMessages();
 
     useEffect(() => {
         setTimeout(() => {
